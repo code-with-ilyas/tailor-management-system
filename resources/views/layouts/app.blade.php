@@ -19,13 +19,18 @@
             @include('layouts.navigation')
 
             <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
+            <!-- @if (isset($header))
+                 <header class="bg-white dark:bg-gray-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
-                </header>
-            @endif
+                </header> 
+            @endif  -->
+        <div class="flex justify-center items-center w-full h-screen mt-5">
+                <h3 class="text-3xl font-bold">Profile</h3>
+        </div>
+
+
 
             <!-- Page Content -->
             <main>
