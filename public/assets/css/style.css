@@ -1,0 +1,33 @@
+/* Custom Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.container {
+    max-width: 500px; /* Limit the form width */
+    background-color: #fff; /* White background for the form */
+    padding: 20px; /* Add padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.form-label {
+    font-weight: bold; /* Make labels bold */
+    margin-bottom: 10px; /* Add spacing below labels */
+}
+
+.form-control {
+    height: 45px; /* Adjust height for inputs */
+    border: 1px solid #ced4da; /* Border styling */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px; /* Inner padding */
+}
+
+.text-danger {
+    font-size: 0.875rem; /* Smaller font size for error messages */
+    margin-top: 5px; /* Add spacing above error messages */
+}
+

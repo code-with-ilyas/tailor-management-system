@@ -13,23 +13,29 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6 flex flex-col items-center justify-center">
         @csrf
         @method('patch')
 
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
-        </div>
+        <div class="form-basic w-full max-w-md">
+            <div class="form-group mb-25">
+                <label for="name">Name</label>
+                <input id="name" class="form-control form-control-lg w-full" type="text" name="name" placeholder="Your Name" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
+                @error('name')
+                <span class="text-danger mt-2">{{ $message }}</span>
+                @enderror
+            </div>
 
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+            <div class="form-group mb-25">
+                <label for="email">Email</label>
+                <input id="email" class="form-control form-control-lg w-full" type="email" name="email" placeholder="name@example.com" value="{{ old('email', $user->email) }}" required autocomplete="username">
+                @error('email')
+                <span class="text-danger mt-2">{{ $message }}</span>
+                @enderror
+            </div>
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
+                <div class="text-center">
                     <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
                         {{ __('Your email address is unverified.') }}
 
@@ -46,9 +52,8 @@
                 </div>
             @endif
         </div>
-
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+ <div class="form-group mb-0 w-full max-w-md">
+ <button type="submit" class="btn btn-lg btn-primary btn-submit w-full">Save</button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -56,7 +61,7 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400"
+                    class="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center"
                 >{{ __('Saved.') }}</p>
             @endif
         </div>
