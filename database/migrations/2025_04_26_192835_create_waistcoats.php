@@ -11,17 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('waist__coats', function (Blueprint $table) {
+        Schema::create('waistcoats', function (Blueprint $table) {
             $table->id();
-            $table->string('length');
-            $table->string('waist');
+            
+            $table->decimal('length', 8, 2);
+            $table->decimal('waist', 8, 2);
+            $table->decimal('chest', 8, 2);
+            $table->decimal('shoulder', 8, 2);
             $table->string('pocket_type');
-            $table->string('chest');
-            $table->string('shoulder');
-            $table->foreignId('user_id')
-            ->constrained()
-            ->onDelete('cascade');
+            
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('waist__coats');
+        Schema::dropIfExists('waistcoats');
     }
 };

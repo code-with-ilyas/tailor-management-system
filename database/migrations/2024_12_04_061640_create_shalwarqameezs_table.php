@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('shoulder');
             $table->string('back_type');
             $table->string('back');
-            $table->string('huf_type');
+            $table->string('cuf_type');
             $table->string('sleeves');
             $table->string('tira');
             $table->string('kalor_type');

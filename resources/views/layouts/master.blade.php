@@ -693,6 +693,7 @@
                      <a href="{{ route('users.create') }}" class="{{ request()->routeIs('users.create') ? 'active' : '' }}">Users</a>
                      <a href="{{ route('pents.create') }}" class="{{ request()->routeIs('pents.create') ? 'active' : '' }}">Pents</a>
                      <a href="{{ route('shirts.create') }}" class="{{ request()->routeIs('shirts.create') ? 'active' : '' }}">shirts</a>
+                     <a href="{{ route('waistcoats.create') }}" class="{{ request()->routeIs('waistcoats.create') ? 'active' : '' }}">waistcoats</a>
                   </li>
 
 

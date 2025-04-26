@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PentController;
 use App\Http\Controllers\ShirtController;
+use App\Http\Controllers\WaistCoatController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,6 +43,8 @@ Route::resource('users', UserController::class);
 Route::resource('pents', PentController::class);
 
 Route::resource('shirts', ShirtController::class);
+
+Route::resource('waistcoats', WaistCoatController::class);
 
 
 
