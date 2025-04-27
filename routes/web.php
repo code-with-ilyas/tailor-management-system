@@ -9,6 +9,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PentController;
 use App\Http\Controllers\ShirtController;
 use App\Http\Controllers\WaistCoatController;
+use App\Http\Controllers\ShalwarKameezController;
+use App\Http\Controllers\InvoiceController;
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,9 +51,9 @@ Route::resource('shirts', ShirtController::class);
 
 Route::resource('waistcoats', WaistCoatController::class);
 
+Route::resource('shalwar-kameez', ShalwarKameezController::class);
 
-
-
+Route::resource('invoice', InvoiceController::class);
 
 
 

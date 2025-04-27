@@ -694,6 +694,8 @@
                      <a href="{{ route('pents.create') }}" class="{{ request()->routeIs('pents.create') ? 'active' : '' }}">Pents</a>
                      <a href="{{ route('shirts.create') }}" class="{{ request()->routeIs('shirts.create') ? 'active' : '' }}">shirts</a>
                      <a href="{{ route('waistcoats.create') }}" class="{{ request()->routeIs('waistcoats.create') ? 'active' : '' }}">waistcoats</a>
+                     <a href="{{ route('shalwar-kameez.create') }}" class="{{ request()->routeIs('shalwar-kameez.create') ? 'active' : '' }}">Shalwar Kameez</a>
+                     <a href="{{ route('invoice.create') }}" class="{{ request()->routeIs('invoice.create') ? 'active' : '' }}">Invoice</a>
                   </li>
 
 
