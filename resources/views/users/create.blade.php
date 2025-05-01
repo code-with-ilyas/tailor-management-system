@@ -17,7 +17,7 @@
         <div class="row justify-content-center"> 
           <div class="col-md-8">
             <div class="card">
-              <div class="card-body"> <!-- Removed height restriction and scrolling -->
+              <div class="card-body">
                 @if(Session::has('message'))
                   <p class="alert alert-success">{{ Session::get('message') }}</p>
                 @endif

@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->decimal('length', 8, 2);
-            $table->decimal('collar', 8, 2);
+            $table->string('collar');
             $table->decimal('shoulder', 8, 2);
             $table->string('back_type'); // changed to string as it represents a type
             $table->decimal('back', 8, 2);

@@ -13,18 +13,16 @@ return new class extends Migration
     {
         Schema::create('pents', function (Blueprint $table) {
             $table->id();
-            $table->string('pent_length');
-            $table->string('waist');
-            $table->string('hips');
-            $table->string('inseam');
-            $table->string('pensa');
-            $table->string('pocket_type'); 
-            $table->foreignId('user_id')
-            ->constrained()
-            ->onDelete('cascade');
+            $table->decimal('pent_length', 5, 2);
+            $table->decimal('waist', 5, 2);
+            $table->decimal('hips', 5, 2);
+            $table->decimal('inseam', 5, 2);
+            $table->decimal('pensa', 5, 2);
+            $table->string('pocket_type');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
-    }
+    }        
 
     /**
      * Reverse the migrations.

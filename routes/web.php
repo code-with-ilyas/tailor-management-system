@@ -55,7 +55,7 @@ Route::resource('shalwar-kameez', ShalwarKameezController::class);
 
 Route::resource('invoice', InvoiceController::class);
 
-
+Route::get('invoice/{id}/print', [InvoiceController::class, 'printInvoice'])->name('invoice.print');
 
 
 

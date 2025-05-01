@@ -17,7 +17,10 @@
                 <!-- Table Heading Section -->
                 <div class="card mb-3 shadow-sm p-3">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 fw-semibold">Pents Measurements</h5>
+                    <h5 class="mb-0">
+    <a class="text-decoration-none" style="font-size: 14px; color: blue;">Pents Measurements</a>
+</h5>
+
                         <a href="{{ route('pents.create') }}" class="btn btn-primary btn-sm">
                             <i class="bi bi-plus-circle"></i> Add New Pents
                         </a>

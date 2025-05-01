@@ -17,7 +17,7 @@
                 <!-- Table Heading Section -->
                 <div class="card mb-3 shadow-sm p-3">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0 fw-semibold">Shalwar Kameez Measurements</h5>
+                        <h6 class="mb-0 fw-semibold text-primary" style="font-size: 14px;">Shalwar Kameez Measurements</h6>
                         <a href="{{ route('shalwar-kameez.create') }}" class="btn btn-primary btn-sm">
                             <i class="bi bi-plus-circle"></i> Add New Measurement
                         </a>
@@ -50,7 +50,7 @@
                     <tbody>
                         @forelse($measurements as $measurement)
                         <tr>
-                            <td class="ps-3">{{ $loop->iteration }}</td>
+                            <td class="ps-3">{{ ($measurements->currentPage() - 1) * $measurements->perPage() + $loop->iteration }}</td>
                             <td>{{ $measurement->length }}</td>
                             <td>{{ $measurement->collar }}</td>
                             <td>{{ $measurement->shoulder }}</td>
@@ -67,36 +67,39 @@
                             <td>{{ $measurement->bottom }}</td>
                             <td>{{ $measurement->user->name }}</td>
                             <td>
-                                 <div class="btn-group" role="group" aria-label="Actions">
-                                        <a href="{{ route('shalwar-kameez.show', $measurement->id) }}" class="btn btn-info btn-sm icon-btn">
-                                    <i class="fas fa-eye"></i>
+                                <div class="btn-group" role="group" aria-label="Actions">
+                                    <a href="{{ route('shalwar-kameez.show', $measurement->id) }}" class="btn btn-info btn-sm icon-btn">
+                                        <i class="fas fa-eye"></i>
                                     </a>
-                                        <a href="{{ route('shalwar-kameez.edit', $measurement->id) }}" class="btn btn-success btn-sm icon-btn">
-                                       <i class="fas fa-edit"></i>
+                                    <a href="{{ route('shalwar-kameez.edit', $measurement->id) }}" class="btn btn-success btn-sm icon-btn">
+                                        <i class="fas fa-edit"></i>
                                     </a>
                                     <form action="{{ route('shalwar-kameez.destroy', $measurement->id) }}" method="POST" style="display: inline;">
-                                       @csrf
-                                       @method('DELETE')
-                                       <button type="submit" class="btn btn-danger btn-sm icon-btn">
-                                          <i class="fas fa-trash"></i>
-                                       </button>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm icon-btn">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </form>
-                                 </div>
+                                </div>
                             </td>
                         </tr>
                         @empty
-                        <!-- <tr>
-                            <td colspan="16" class="text-center">No measurements found.</td>
-                        </tr> -->
+                        <!-- Optional: Message when no measurements -->
                         @endforelse
                     </tbody>
                 </table>
             </div>
+
+            <!-- Pagination Links -->
+            <div class="d-flex justify-content-center mt-4">
+                {{ $measurements->links() }}
+            </div>
         </div>
+    </div>
+</div>
 
-       
-
-<!-- Tooltip Initialization Script -->
+<!-- Tooltip Script -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -106,6 +109,7 @@
     });
 </script>
 
+<!-- Styles -->
 <style>
     .btn-sm {
         padding: 0.25rem 0.5rem;
@@ -116,11 +120,11 @@
     }
     .table th, .table td {
         vertical-align: middle;
-        border: 1px solid #dee2e6; /* Add border to each field */
+        border: 1px solid #dee2e6;
     }
     .table-responsive {
         margin-top: 20px;
-        margin-left: 20px; /* Add space on the left side to shift the table to the right */
+        margin-left: 20px;
     }
     .card-header h5 {
         font-weight: 600;
@@ -143,5 +147,4 @@
         padding: 0.75rem;
     }
 </style>
-
 @endsection
